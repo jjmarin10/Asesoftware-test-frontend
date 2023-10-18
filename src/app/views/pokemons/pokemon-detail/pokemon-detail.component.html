@@ -1,0 +1,59 @@
+<h1>Detalle de pokemon</h1>
+<div class="wrap">
+    <mat-card
+        class="container-card">
+        <img
+            mat-card-image
+            src={{selectedPokemon.sprites.front_shiny}}
+            alt="Photo of a pokemon"
+        />
+        <mat-card-content>
+            <div class="container-id-name">
+                <p># {{selectedPokemon.id}}</p>
+                <p>{{selectedPokemon.name}}</p> 
+            </div>
+            <p>Types</p>
+            <div class="container-types">
+                <p *ngFor="let types of selectedPokemon.types">{{types.type.name}}</p>
+            </div>
+            <p>Peso</p>
+            <p>{{selectedPokemon.weight}}</p>
+            <p>Sprites</p>
+            <div class="container-sprites">
+                <img
+                mat-card-image
+                src={{selectedPokemon.sprites.back_default}}
+                alt="Photo of a pokemon"
+                />  
+                <img
+                mat-card-image
+                src={{selectedPokemon.sprites.back_shiny}}
+                alt="Photo of a pokemon"
+                />  
+                <img
+                mat-card-image
+                src={{selectedPokemon.sprites.front_default}}
+                alt="Photo of a pokemon"
+                />  
+                <img
+                mat-card-image
+                src={{selectedPokemon.sprites.front_shiny}}
+                alt="Photo of a pokemon"
+                />  
+            </div>
+            <p>Movimientos</p>
+            <div class="container-moves">
+                <p *ngFor="let moves of selectedPokemon.moves">{{moves.move.name}}</p>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="container-btn">
+    <button
+        class="btn-back" 
+        (click)="comeBack()"
+        mat-raised-button color="primary"
+        >Regresar
+    </button>
+</div>
+

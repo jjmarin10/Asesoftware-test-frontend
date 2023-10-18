@@ -1,0 +1,25 @@
+<h1>Listado de pokemon</h1>
+<div class="container-input">
+    <input 
+        matInput
+        [(ngModel)]="searchText"
+        placeholder="Buscar"
+        value=""
+    >
+</div>
+<div class="wrap">
+    <mat-card
+        *ngFor="let pokemonDetail of pokemonsDetail | appFilter: searchText"
+        (click)="showPokemonDetail(pokemonDetail)"
+        class="container-card">
+        <img
+            mat-card-image
+            src={{pokemonDetail.sprites.front_shiny}}
+            alt="Photo of a pokemon"
+        />
+        <mat-card-content>
+            <p># {{pokemonDetail.id}}</p>
+            <p>{{pokemonDetail.name}}</p> 
+        </mat-card-content>
+    </mat-card>
+</div>
